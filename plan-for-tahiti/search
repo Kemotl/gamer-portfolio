@@ -19,7 +19,7 @@
       position: relative;
     }
 
-    /* Secret Button */
+    /* Secret Button linking exactly to your specific Vercel portfolio build */
     .secret-btn {
       position: absolute;
       top: 15px;
@@ -124,8 +124,8 @@
 </head>
 <body>
 
-  <!-- Hidden link back to main site -->
-  <a href="https://kemo-otak.vercel.app" class="secret-btn">[ SYS.PORTFOLIO ]</a>
+  <!-- Hidden link directly to your main portfolio deployment -->
+  <a href="https://plan-for-tahiti-o4vw83mxl-kareemmohamedharidy-7974s-projects.vercel.app/" class="secret-btn">[ SYS.PORTFOLIO ]</a>
 
   <img src="sasd.jpg" alt="Kemo_otak" class="profile-pic">
 
