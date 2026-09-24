@@ -9,13 +9,13 @@
       margin: 0;
       padding: 0;
       background-color: #050505;
-      /* شبكة الخلفية الرايقة */
+      /* شبكة الخلفية */
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       background-size: 30px 30px;
       color: #fff;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* الخط المودرن الجديد */
       display: flex;
       justify-content: center;
       padding: 50px 20px;
@@ -48,6 +48,8 @@
     .profile-pic {
       width: 160px;
       height: 160px;
+      min-width: 160px; /* بيمنع الصورة إنها تتفعص */
+      flex-shrink: 0;   /* بيخليها مدورة دايماً ومتبقاش بيضة */
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #00e5ff;
@@ -57,22 +59,22 @@
     .info h1 {
       color: #00e5ff;
       margin: 0 0 5px 0;
-      font-size: 42px;
+      font-size: 48px;
       text-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
 
     .info h3 {
       color: #aaa;
       margin: 0 0 20px 0;
-      font-size: 14px;
+      font-size: 15px;
       letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     .info p {
       line-height: 1.8;
-      font-size: 14px;
+      font-size: 15px;
       color: #ddd;
       margin-bottom: 15px;
     }
@@ -106,7 +108,7 @@
     .box-trophy { border-left: 4px solid #ff00ff; }
 
     .box h2 {
-      font-size: 15px;
+      font-size: 16px;
       margin-top: 0;
       margin-bottom: 20px;
       letter-spacing: 1px;
@@ -122,10 +124,11 @@
     }
 
     .box li {
-      font-size: 12px;
-      margin-bottom: 12px;
+      font-size: 13px;
+      margin-bottom: 15px;
       color: #bbb;
       line-height: 1.5;
+      font-weight: 500;
     }
 
     .box li::before {
@@ -154,14 +157,14 @@
       padding: 18px 25px;
       text-decoration: none;
       color: #555;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: bold;
       transition: 0.3s;
       border-radius: 6px;
     }
 
     .social-btn:hover { background: #111; transform: translateY(-3px); }
-    .social-btn span { font-size: 18px; letter-spacing: 2px; }
+    .social-btn span { font-size: 18px; letter-spacing: 1px; }
 
     .s-wa span { color: #25D366; }
     .s-ig span { color: #E1306C; }
@@ -177,6 +180,7 @@
 <body>
 
   <div class="container">
+    <!-- الهيدر -->
     <div class="header">
       <img src="sasd.jpg" alt="Kemo_otak" class="profile-pic">
       <div class="info">
@@ -187,6 +191,7 @@
       </div>
     </div>
 
+    <!-- قسم الإنجازات والأجهزة -->
     <div class="boxes">
       <div class="box box-cmd">
         <h2>/// COMMAND CENTER</h2>
@@ -206,17 +211,14 @@
       </div>
     </div>
 
+    <!-- زراير السوشيال ميديا -->
     <div class="social-grid">
-      <a href="#" class="social-btn s-wa"><span>WHATSAPP</span> /// COMMS</a>
-      <a href="#" class="social-btn s-ig"><span>INSTAGRAM</span> /// MEDIA</a>
-      <a href="#" class="social-btn s-dc"><span>DISCORD</span> /// SERVER</a>
-      <a href="#" class="social-btn s-sc"><span>SNAPCHAT</span> /// SNAP</a>
+      <a href="https://wa.me/رقمك_هنا" class="social-btn s-wa"><span>WHATSAPP</span> /// COMMS</a>
+      <a href="https://instagram.com/حسابك_هنا" class="social-btn s-ig"><span>INSTAGRAM</span> /// MEDIA</a>
+      <a href="https://discord.gg/سيرفرك_هنا" class="social-btn s-dc"><span>DISCORD</span> /// SERVER</a>
+      <a href="https://snapchat.com/add/حسابك_هنا" class="social-btn s-sc"><span>SNAPCHAT</span> /// SNAP</a>
     </div>
   </div>
 
 </body>
 </html>
-
-
-
-
