@@ -55,13 +55,13 @@
       box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
     }
 
-    /* --- تأثير الـ Enderman Glitch والـ Glow للاسم --- */
+    /* --- تأثير الـ Enderman Glitch (يعمل عند المرور بالماوس فقط) --- */
     @keyframes endermanGlitch {
       0% { transform: translate(0); text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff; }
-      20% { transform: translate(-2px, 2px); text-shadow: 2px -2px 0px #ff0055, 0 0 20px #00e5ff; }
-      40% { transform: translate(-1px, -1px); text-shadow: 0 0 15px #00e5ff; }
-      60% { transform: translate(2px, 1px); text-shadow: -2px 2px 0px #00ff66, 0 0 25px #00e5ff; }
-      80% { transform: translate(1px, -2px); text-shadow: 0 0 10px #00e5ff; }
+      20% { transform: translate(-3px, 3px); text-shadow: 3px -3px 0px #ff0055, 0 0 20px #00e5ff; }
+      40% { transform: translate(-2px, -2px); text-shadow: 0 0 15px #00e5ff; }
+      60% { transform: translate(3px, 2px); text-shadow: -3px 3px 0px #00ff66, 0 0 25px #00e5ff; }
+      80% { transform: translate(2px, -3px); text-shadow: 0 0 10px #00e5ff; }
       100% { transform: translate(0); text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff; }
     }
 
@@ -70,7 +70,14 @@
       margin: 0 0 5px 0;
       font-size: 48px;
       letter-spacing: 1px;
-      animation: endermanGlitch 0.8s infinite steps(2, start);
+      display: inline-block;
+      cursor: pointer;
+      text-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+      transition: 0.2s;
+    }
+
+    .info h1:hover {
+      animation: endermanGlitch 0.4s infinite steps(2, start);
     }
 
     .info h3 {
