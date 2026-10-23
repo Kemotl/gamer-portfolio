@@ -30,7 +30,6 @@
     }
 
     html {
-      scroll-behavior: smooth;
       scroll-padding-top: 90px;
     }
 
@@ -694,14 +693,9 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
       *,
       *::before,
       *::after {
-        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -711,6 +705,17 @@
         opacity: 1;
         transform: none;
       }
+    }
+
+    /* Glow on the section label when you arrive via a button/link */
+    .content-section.arrived .section-label {
+      animation: arrive-glow 1.3s ease;
+    }
+
+    @keyframes arrive-glow {
+      0%   { text-shadow: 0 0 0 transparent; letter-spacing: 0.16em; }
+      40%  { text-shadow: 0 0 18px var(--cyan); letter-spacing: 0.26em; }
+      100% { text-shadow: 0 0 0 transparent; letter-spacing: 0.16em; }
     }
   </style>
 </head>
@@ -929,18 +934,41 @@
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const internalLinks = document.querySelectorAll('a[href^="#"]');
 
-    // Smoothly scroll to every in-page destination, including nav and CTA links.
+    // Custom smooth scroll: runs only when a button/link is pressed
+    function smoothScrollTo(target, duration = 1000) {
+      const headerOffset = 78;
+      const startY = window.scrollY;
+      const endY = target.id === "home"
+        ? 0
+        : target.getBoundingClientRect().top + startY - headerOffset;
+      const distance = endY - startY;
+      const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+      let startTime = null;
+
+      function step(now) {
+        if (startTime === null) startTime = now;
+        const progress = Math.min((now - startTime) / duration, 1);
+        window.scrollTo(0, startY + distance * ease(progress));
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          target.classList.remove("arrived");
+          void target.offsetWidth; // restart the animation
+          target.classList.add("arrived");
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
     internalLinks.forEach((link) => {
       link.addEventListener("click", (event) => {
         const target = document.querySelector(link.getAttribute("href"));
         if (!target) return;
 
         event.preventDefault();
-        target.scrollIntoView({
-          behavior: reduceMotion ? "auto" : "smooth",
-          block: "start"
-        });
-
+        smoothScrollTo(target);
         history.replaceState(null, "", link.getAttribute("href"));
       });
     });
