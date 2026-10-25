@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#080d12">
   <meta
     name="description"
-    content="Kemo's gaming portfolio: games, setup, and achievements."
+    content="Kemo_otak's gaming portfolio: games, setup, achievements, and socials."
   >
-  <title>Kemo // XEMOX Portfolio</title>
+  <title>Kemo_otak // XEMOX Portfolio</title>
 
   <style>
     :root {
@@ -30,6 +30,7 @@
     }
 
     html {
+      scroll-behavior: smooth;
       scroll-padding-top: 90px;
     }
 
@@ -378,7 +379,8 @@
 
     .game-card,
     .setup-card,
-    .achievement {
+    .achievement,
+    .social-card {
       border: 1px solid var(--line);
       background: linear-gradient(145deg, rgba(16, 33, 42, 0.96), rgba(10, 17, 23, 0.96));
     }
@@ -502,6 +504,48 @@
       font-size: 1rem;
     }
 
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .social-card {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .social-card:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(37, 244, 255, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .social-arrow {
+      color: var(--cyan);
+      transition: transform 180ms ease;
+    }
+
+    .social-card:hover .social-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    .contact-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
     footer {
       padding-block: 24px;
       border-top: 1px solid var(--line);
@@ -579,6 +623,10 @@
       .game-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .social-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 650px) {
@@ -621,6 +669,10 @@
       .achievements {
         grid-template-columns: 1fr;
       }
+
+      .social-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 420px) {
@@ -632,15 +684,24 @@
         min-height: 185px;
       }
 
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
       .scroll-cue {
         bottom: 16px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
       *,
       *::before,
       *::after {
+        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -651,17 +712,6 @@
         transform: none;
       }
     }
-
-    /* Glow on the section label when you arrive via a button/link */
-    .content-section.arrived .section-label {
-      animation: arrive-glow 1.3s ease;
-    }
-
-    @keyframes arrive-glow {
-      0%   { text-shadow: 0 0 0 transparent; letter-spacing: 0.16em; }
-      40%  { text-shadow: 0 0 18px var(--cyan); letter-spacing: 0.26em; }
-      100% { text-shadow: 0 0 0 transparent; letter-spacing: 0.16em; }
-    }
   </style>
 </head>
 
@@ -670,15 +720,16 @@
 
   <header class="site-header">
     <nav class="nav wrap" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Kemo home">
+      <a class="brand" href="#home" aria-label="Kemo Otak home">
         <span class="brand-mark">K</span>
-        <span>KEMO</span>
+        <span>KEMO<span>_OTAK</span></span>
       </a>
 
       <div class="nav-links">
         <a href="#games">Games</a>
         <a href="#setup">Setup</a>
         <a href="#achievements">Trophies</a>
+        <a href="#socials">Socials</a>
       </div>
     </nav>
   </header>
@@ -736,4 +787,218 @@
             <span class="card-number">03 / OPEN WORLD</span>
             <div class="card-icon" aria-hidden="true">🏙️</div>
             <h3>GTA 5</h3>
-            <p
+            <p>Exploring the city and making my own stories.</p>
+          </article>
+
+          <article class="game-card reveal">
+            <span class="card-number">04 / ALL-TIME FAVORITE</span>
+            <div class="card-icon" aria-hidden="true">🐎</div>
+            <h3>Red Dead Redemption 2</h3>
+            <p>The masterpiece I always come back to.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="setup">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">02 // HARDWARE</p>
+            <h2>My player one.</h2>
+          </div>
+          <p class="section-intro">
+            The gear behind the sessions—built for gameplay, clear audio,
+            and a little extra immersion.
+          </p>
+        </div>
+
+        <div class="setup-grid stagger">
+          <article class="setup-card reveal">
+            <span class="setup-icon" aria-hidden="true">▣</span>
+            <h3>Graphics</h3>
+            <p>NVIDIA RTX 3050 Ti</p>
+            <small>Laptop GPU</small>
+          </article>
+
+          <article class="setup-card reveal">
+            <span class="setup-icon" aria-hidden="true">▤</span>
+            <h3>Display</h3>
+            <p>Dual monitors</p>
+            <small>High refresh rate</small>
+          </article>
+
+          <article class="setup-card reveal">
+            <span class="setup-icon" aria-hidden="true">♫</span>
+            <h3>Audio</h3>
+            <p>Soundcore Liberty 4 NC</p>
+            <small>Wireless audio</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="achievements">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">03 // TROPHY ROOM</p>
+            <h2>Earned, not given.</h2>
+          </div>
+          <p class="section-intro">
+            A few milestones from across the collection.
+          </p>
+        </div>
+
+        <div class="achievements stagger">
+          <article class="achievement reveal">
+            <span class="trophy" aria-hidden="true">🏆</span>
+            <div>
+              <h3>Level 100 Battle Pass</h3>
+              <p>Fortnite</p>
+            </div>
+          </article>
+
+          <article class="achievement reveal">
+            <span class="trophy" aria-hidden="true">🏆</span>
+            <div>
+              <h3>Taskmaster Challenges</h3>
+              <p>Spider-Man (PS4)</p>
+            </div>
+          </article>
+
+          <article class="achievement reveal">
+            <span class="trophy" aria-hidden="true">🏆</span>
+            <div>
+              <h3>Nornir Puzzles</h3>
+              <p>God of War</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="socials">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-label">04 // COMMS OPEN</p>
+            <h2>Find me in the lobby.</h2>
+          </div>
+          <p class="section-intro">
+            Follow along, say hi, or add me to your gaming circle.
+          </p>
+        </div>
+
+        <div class="social-grid stagger">
+          <!-- Replace the example usernames and IDs with your real profile links. -->
+          <a class="social-card reveal" href="https://wa.me/YOUR_NUMBER" target="_blank" rel="noopener noreferrer">
+            <span>WhatsApp</span><span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social-card reveal" href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+            <span>Instagram</span><span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social-card reveal" href="https://discord.com/users/YOUR_ID" target="_blank" rel="noopener noreferrer">
+            <span>Discord</span><span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social-card reveal" href="https://www.snapchat.com/add/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+            <span>Snapchat</span><span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="social-card reveal" href="https://steamcommunity.com/id/YOUR_STEAM_ID/" target="_blank" rel="noopener noreferrer">
+            <span>Steam</span><span class="social-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <p class="contact-note reveal">
+          Replace the example usernames and IDs with your own before sharing the site.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap">
+      <span><strong>KEMO_OTAK</strong> // XEMOX PORTFOLIO</span>
+      <span>© <span id="year"></span> Kemo_otak</span>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add("js");
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+
+    // Smoothly scroll to every in-page destination, including nav and CTA links.
+    internalLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({
+          behavior: reduceMotion ? "auto" : "smooth",
+          block: "start"
+        });
+
+        history.replaceState(null, "", link.getAttribute("href"));
+      });
+    });
+
+    // Reveal cards and sections as they enter the viewport.
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+
+    // Update the slim neon progress bar while scrolling.
+    const progress = document.getElementById("topProgress");
+
+    function updateProgress() {
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const percent = scrollableHeight > 0
+        ? (window.scrollY / scrollableHeight) * 100
+        : 0;
+
+      progress.style.width = `${percent}%`;
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+
+    // Highlight the navigation link for the section currently on screen.
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          navLinks.forEach((link) => {
+            const isCurrent = link.getAttribute("href") === `#${entry.target.id}`;
+            link.classList.toggle("active", isCurrent);
+          });
+        });
+      }, { rootMargin: "-35% 0px -55% 0px" });
+
+      sections.forEach((section) => sectionObserver.observe(section));
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
